@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Data Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h1>JSON Data Table</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody id="data"></tbody>
+</table>
+<script>
+    const data = [
+        {"name": "John", "age": 30, "email": "john@example.com"},
+        {"name": "Jane", "age": 25, "email": "jane@example.com"},
+        {"name": "Bob", "age": 35, "email": "bob@example.com"}
+    ];
+    const tbody = document.getElementById("data");
+    data.forEach(item => {
+        const tr = document.createElement("tr");
+        const td1 = document.createElement("td");
+        const td2 = document.createElement("td");
+        const td3 = document.createElement("td");
+        td1.textContent = item.name;
+        td2.textContent = item.age;
+        td3.textContent = item.email;
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tbody.appendChild(tr);
+    });
+</script>
+{{>partial}}
+</body>
+</html>
