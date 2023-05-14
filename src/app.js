@@ -6,6 +6,7 @@ const express = require("express");
 const app = express()
 const geo = require('./utils/geocode')
 const forecast = require('./utils/forecast')
+const port = process.env.PORT || 3000
 const listenFunc = () => {
     console.log('server is up')
 }
@@ -92,4 +93,4 @@ app.get('*', (req, res) => {
 
 
 
-app.listen(3000, listenFunc)
+app.listen(port, listenFunc)
