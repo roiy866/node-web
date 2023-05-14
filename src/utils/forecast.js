@@ -22,7 +22,7 @@ const forecast = (longtitue,latitue,cb) =>{
         json:true
     },(error, {body})=>{
         if (error) {
-            cb("Cannot run. Error is found",'')
+            cb("Didn't find any location. Try another one",'')
         }
         else if (!body.current) {
             cb("now the error inside the body",'')
@@ -30,7 +30,7 @@ const forecast = (longtitue,latitue,cb) =>{
             const location = body.location.country
             const temp = body.current.temperature
             const feel =  body.current.feelslike
-            cb('',{location:location,forecastData:'in '+location+' temperature is '+temp+' but its feel like '+feel})
+            cb('',{location:location,forecastData:'in '+location+' temperature is '+temp+' but its feel like '+feel+' and humidity is '+body.current.humidity+' percent'})
         }
 
     })
